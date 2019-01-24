@@ -1,0 +1,28 @@
+{
+  "name": "rendergirl",
+  "version": "1.0.0",
+  "description": "Discord new-user greeter",
+  "main": "index.js",
+  "dependencies": {
+    "node-cmd": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sciencedude100/renderGirl.git"
+  },
+  "keywords": [
+    "scad",
+    "bot",
+    "user"
+  ],
+  "author": "Ed Green#0316",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sciencedude100/renderGirl/issues"
+  },
+  "homepage": "https://github.com/sciencedude100/renderGirl#readme"
+}
