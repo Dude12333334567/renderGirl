@@ -1,3 +1,3 @@
 linear_extrude(2){
-    text("Name Here", font="DejaVu Sans");
+text("notame", font="DejaVu Sans");
 }

@@ -1,21 +1,28 @@
 var Discord = require('discord.io');
 var auth = require('./creds.json');
-var ncmd = require('node-cmd');
+var cmd = require('node-cmd');
 
+var chID = "296436844885835778";
 var bot = new Discord.Client({
     token: auth.token,
     autorun: true
 });
 
 bot.on('ready', function() {
-    console.log('Logged in as %s - %s\n', bot.username, bot.id);
+    console.log('Logged in: %s - %s\n', bot.username, bot.id);
 });
 
-bot.on('message', function(user, userID, channelID, message, event) {
-    if (message === "ping") {
-        bot.sendMessage({
-            to: channelID,
-            message: "pong"
-        });
-    }
+bot.on('guildMemberAdd', function (member) {
+  var name = bot.users[member.id].username;
+  var fname = name + ".png";
+  console.log("New User: " + name);
+  cmd.run("echo \"linear_extrude(2){\ntext(\\\"" + name +"\\\", font=\\\"DejaVu Sans\\\");\n}\" > temp.scad");
+  cmd.run("openscad -o temp.stl temp.scad");
+  
+  bot.uploadFile({
+    to: chID,
+    file: "temp.png",
+    filename: fname,
+    message: ""
+ });
 });
